@@ -37,18 +37,17 @@ function minusButton () {
 
 // pause and resume the timer
 
-function pauseTimer() {
+function pauseTimer(e) {
     paused= !paused;
+    e.target.textContent = paused ? 'resume' : 'pause'
     const buttons = [
         plus,minus,heart,submit
     ]
     buttons.forEach(button => button.disabled = paused ? true : false)
-    pause.innerText = 'resume';
     if(paused === true) {
         clearInterval(master)
     } else {
         setInterval(watchTime,1000);
-        pause.innerText = 'pause';
     }
 }
 
